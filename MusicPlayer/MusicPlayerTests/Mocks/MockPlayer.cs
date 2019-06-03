@@ -1,5 +1,6 @@
 ﻿using MusicPlayer;
 using MusicPlayer.MusicPlayerComponents;
+using System.Collections.Generic;
 
 namespace MusicPlayerTests.Mocks
 {
@@ -9,8 +10,10 @@ namespace MusicPlayerTests.Mocks
 
         public bool isPlayback = false;
         
-        public void PlaySong()
+        public void PlaySong(List<string> filesSelected)
         {
+            filesSelected = null;
+
             if (_mDevice.InteractivityTimer())
             {
                 isPlayback = true;

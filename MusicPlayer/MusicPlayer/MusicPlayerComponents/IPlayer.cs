@@ -1,8 +1,10 @@
-﻿namespace MusicPlayer.MusicPlayerComponents
+﻿using System.Collections.Generic;
+
+namespace MusicPlayer.MusicPlayerComponents
 {
     public interface IPlayer
     {
-        void PlaySong();
+        void PlaySong(List<string> filesSelected);
 
     }
 }

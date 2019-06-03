@@ -1,4 +1,5 @@
-﻿using System.Media;
+﻿using System.Collections.Generic;
+using System.Media;
 
 namespace MusicPlayer.MusicPlayerComponents
 {
@@ -11,7 +12,7 @@ namespace MusicPlayer.MusicPlayerComponents
 
         public bool isPlayback = false;
 
-        public void PlaySong()
+        public void PlaySong(List<string> filesSelected)
         {
             if (_mDevice.InteractivityTimer())
             {
@@ -20,8 +21,14 @@ namespace MusicPlayer.MusicPlayerComponents
 
             if (isPlayback)
             {
-                SoundPlayer songSelected = new SoundPlayer(@"C:\Code\MusicPlayerSynopticProject\MusicLibrary\Friday - Rebecca Black.wav");
-                songSelected.Play();
+                WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+
+                for (int i = 0; i < filesSelected.Count; i++)
+                {
+                    wplayer.URL = filesSelected[i].Replace(@"\\", @"\");
+                    wplayer.controls.play();
+                }
+                
             }
         }
     }
