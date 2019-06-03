@@ -13,7 +13,7 @@ namespace MusicPlayer
 
         private void PlayButtonClicked(object sender, EventArgs e)
         {
-            SoundPlayer songSelected = new SoundPlayer(@"c:\Windows\Media\chord.wav");
+            SoundPlayer songSelected = new SoundPlayer(@"C:\Code\MusicPlayerSynopticProject\MusicLibrary\Friday - Rebecca Black.wav");
             songSelected.Play();
         }
     }
