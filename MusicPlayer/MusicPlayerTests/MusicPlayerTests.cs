@@ -1,6 +1,6 @@
 using NUnit.Framework;
 using MusicPlayer;
-using MusicPlayer.MusicPlayerComponents;
+using MusicPlayerTests.Mocks;
 
 namespace MusicPlayerTests
 {
@@ -9,27 +9,15 @@ namespace MusicPlayerTests
         [Test]
         public void plackback_continues_even_if_device_is_idle()
         {
-            // Given
+            // Given a device 
             var device = new DeviceMock();
-            var timeWithNoInteractionSeconds = 30;
-            var player = new Player();
+            var mockPlayer = new MockPlayer();
 
-            device.InteractivityTimer();
+            // When a song is playing and no buttons are pressed for 30 seconds
+            mockPlayer.PlaySong();
 
-            // When 
-            var isDeviceIdle = device.InteractivityTimer() >= timeWithNoInteractionSeconds;
-
-            // Then
-            Assert.True(isDeviceIdle);
-
-            // When 
-            if (isDeviceIdle)
-            {
-                player.isPlayback = true;
-            }
-
-            // Then
-            Assert.True(player.isPlayback);
+            // Then the device carrys on playing music
+            Assert.True(mockPlayer.isPlayback);
         }
     }
 }

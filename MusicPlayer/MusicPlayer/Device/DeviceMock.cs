@@ -1,13 +1,30 @@
-﻿namespace MusicPlayer
+﻿using System;
+
+namespace MusicPlayer
 {
     public class DeviceMock
     {
         public DeviceMock()
         { }
+        
+        public bool aButtonIsPressed = false;
 
-        public int InteractivityTimer()
+        public bool InteractivityTimer()
         {
-            return 0;
+            DateTime currentDate = DateTime.Now;
+            var afterThirtySeconds =  currentDate.AddSeconds(30);
+
+            while (aButtonIsPressed)
+            {
+                if ((afterThirtySeconds >= DateTime.Now))
+                {
+                    return false;
+                }
+
+                return true;
+            }
+
+            return true;
         }
     }
 }
