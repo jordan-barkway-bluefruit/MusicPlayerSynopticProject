@@ -6,6 +6,7 @@ namespace MusicPlayer.MusicPlayerComponents
     {
         void PlaySong(List<string> filesSelected);
         void SkipSong();
-
+        void PreviousSong();
+        void PauseSong();
     }
 }

@@ -25,8 +25,6 @@ namespace MusicPlayer.MusicPlayerComponents
 
             if (isPlayback)
             {
-                
-
                 for (int i = 0; i < filesSelected.Count; i++)
                 {
                     playlist.appendItem(wplayer.newMedia(filesSelected[i].Replace(@"\\", @"\")));
@@ -40,6 +38,16 @@ namespace MusicPlayer.MusicPlayerComponents
         public void SkipSong()
         {
             wplayer.controls.next();
+        }
+
+        public void PreviousSong()
+        {
+            wplayer.controls.previous();
+        }
+
+        public void PauseSong()
+        {
+            wplayer.controls.pause();
         }
 
     }

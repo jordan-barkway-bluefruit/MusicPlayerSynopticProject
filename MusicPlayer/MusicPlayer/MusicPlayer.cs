@@ -19,11 +19,12 @@ namespace MusicPlayer
         private Player _mPlayer = new Player();
 
         public List<string> filesSelected = new List<string>();
+               
 
         private void PlayButtonClicked(object sender, EventArgs e)
         {
             _mDevice.aButtonIsPressed = true;
-            _mPlayer.PlaySong(filesSelected);
+            _mPlayer.PlaySong(filesSelected);            
         }
 
         private void SelectMusicFiles(object sender, EventArgs e)
@@ -51,6 +52,18 @@ namespace MusicPlayer
         {
             _mDevice.aButtonIsPressed = true;
             _mPlayer.SkipSong();
+        }
+
+        private void PreviousButtonClicked(object sender, EventArgs e)
+        {
+            _mDevice.aButtonIsPressed = true;
+            _mPlayer.PreviousSong();
+        }
+
+        private void PauseButtonClicked(object sender, EventArgs e)
+        {
+            _mDevice.aButtonIsPressed = true;
+            _mPlayer.PauseSong();
         }
     }
 }

@@ -130,6 +130,23 @@
   <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="pauseButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAIAAABuYg/PAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAG1JREFUWEftzcEJAwEMA8Hrv+lLEBPQzylA8zGYBT3vz/MfdXhd1N/e3djGmnpj
+        RR1eF/XGijq8LuqNFXV4XdQbK+rwuqg3VtThdVFvrKjD66LeWFGH10W9saIOr4t6Y0UdXhf1xoo6vC7q
+        9/0AzU40BWOS/WoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="previousButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAIAAABuYg/PAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAKlJREFUWEft0zkShDAMBED+/+k9vB1AFQbJV21AZyDNKIGt5tVNUYREKy1BQnny
+        KaJJwlnSYWJtdMTINFNzx3YnZZes9tNXYWkUrWdsDKT4yGw49TsGM7hQeDWPOwsufSw683j8m6Wffvmh
+        vzxP5VTh1Tzu7BjM4MKR2XDqz9gYSHGFpVG0XrLaT98d252Uxcg0UxMm1kZHknCWdJ58imgrLUFCfXT9
+        bNsbmg0fGqPiiR8AAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="SkipToNextSong.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAIAAABuYg/PAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -139,6 +156,9 @@
         nWn6AkuzHxrJi6TWAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>46</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAkAAAAAAAEAIADzSAAAlgAAAICAAAABACAAKAgBAIlJAABgYAAAAQAgAKiUAACxUQEASEgAAAEA
