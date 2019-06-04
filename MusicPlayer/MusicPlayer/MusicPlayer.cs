@@ -11,7 +11,8 @@ namespace MusicPlayer
         public MusicPlayer()
         {
             InitializeComponent();
-            
+
+            panel1.Hide();
         }
 
         private DeviceMock _mDevice = new DeviceMock();
@@ -41,6 +42,15 @@ namespace MusicPlayer
                     filesSelected.Add(files[i].ToString());
                 }
             }
+
+            SelectMediaFiles.Hide();
+            panel1.Show();
+        }
+
+        private void SkipButtonClicked(object sender, EventArgs e)
+        {
+            _mDevice.aButtonIsPressed = true;
+            _mPlayer.SkipSong();
         }
     }
 }

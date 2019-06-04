@@ -12,6 +12,10 @@ namespace MusicPlayer.MusicPlayerComponents
 
         public bool isPlayback = false;
 
+        static readonly WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+
+        private WMPLib.IWMPPlaylist playlist = wplayer.newPlaylist("My playlist", "");
+
         public void PlaySong(List<string> filesSelected)
         {
             if (_mDevice.InteractivityTimer())
@@ -21,9 +25,7 @@ namespace MusicPlayer.MusicPlayerComponents
 
             if (isPlayback)
             {
-                WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-
-                var playlist = wplayer.newPlaylist("My playlist", "");
+                
 
                 for (int i = 0; i < filesSelected.Count; i++)
                 {
@@ -35,5 +37,10 @@ namespace MusicPlayer.MusicPlayerComponents
                 
             }
         }
+        public void SkipSong()
+        {
+            wplayer.controls.next();
+        }
+
     }
 }
