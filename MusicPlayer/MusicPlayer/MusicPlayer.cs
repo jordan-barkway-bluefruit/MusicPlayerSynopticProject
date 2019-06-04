@@ -15,6 +15,8 @@ namespace MusicPlayer
             panel1.Hide();
         }
 
+        int songNumber = 0;
+
         private DeviceMock _mDevice = new DeviceMock();
         private Player _mPlayer = new Player();
 
@@ -24,7 +26,9 @@ namespace MusicPlayer
         private void PlayButtonClicked(object sender, EventArgs e)
         {
             _mDevice.aButtonIsPressed = true;
-            _mPlayer.PlaySong(filesSelected);            
+            _mPlayer.PlaySong(filesSelected);
+
+            songTitleDisplay.Text = filesSelected[songNumber].ToString().Substring(48);
         }
 
         private void SelectMusicFiles(object sender, EventArgs e)
@@ -44,6 +48,8 @@ namespace MusicPlayer
                 }
             }
 
+            albumTitleDisplay.Text = folderBrowserDialog1.SelectedPath.ToString().Substring(48);
+
             SelectMediaFiles.Hide();
             panel1.Show();
         }
@@ -52,12 +58,23 @@ namespace MusicPlayer
         {
             _mDevice.aButtonIsPressed = true;
             _mPlayer.SkipSong();
+
+            if (songNumber-1 != filesSelected.Count)
+            {
+                songTitleDisplay.Text = filesSelected[++songNumber].ToString().Substring(48);
+            }
+            else
+            {
+                PlayButtonClicked(sender, e);
+            }
         }
 
         private void PreviousButtonClicked(object sender, EventArgs e)
         {
             _mDevice.aButtonIsPressed = true;
             _mPlayer.PreviousSong();
+
+            songTitleDisplay.Text = filesSelected[--songNumber].ToString().Substring(48);
         }
 
         private void PauseButtonClicked(object sender, EventArgs e)

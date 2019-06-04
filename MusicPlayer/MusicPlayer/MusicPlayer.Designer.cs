@@ -37,6 +37,9 @@
             this.songTitleDisplay = new System.Windows.Forms.Label();
             this.SkipToNextSong = new System.Windows.Forms.Button();
             this.pauseButton = new System.Windows.Forms.Button();
+            this.songTitleLabel = new System.Windows.Forms.Label();
+            this.albumTitleLabel = new System.Windows.Forms.Label();
+            this.albumTitleDisplay = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +66,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.albumTitleDisplay);
+            this.panel1.Controls.Add(this.albumTitleLabel);
+            this.panel1.Controls.Add(this.songTitleLabel);
             this.panel1.Controls.Add(this.pauseButton);
             this.panel1.Controls.Add(this.previousButton);
             this.panel1.Controls.Add(this.songTitleDisplay);
@@ -114,6 +120,32 @@
             this.pauseButton.UseVisualStyleBackColor = true;
             this.pauseButton.Click += new System.EventHandler(this.PauseButtonClicked);
             // 
+            // songTitleLabel
+            // 
+            this.songTitleLabel.AutoSize = true;
+            this.songTitleLabel.Location = new System.Drawing.Point(14, 18);
+            this.songTitleLabel.Name = "songTitleLabel";
+            this.songTitleLabel.Size = new System.Drawing.Size(57, 13);
+            this.songTitleLabel.TabIndex = 6;
+            this.songTitleLabel.Text = "Song title: ";
+            // 
+            // albumTitleLabel
+            // 
+            this.albumTitleLabel.AutoSize = true;
+            this.albumTitleLabel.Location = new System.Drawing.Point(17, 56);
+            this.albumTitleLabel.Name = "albumTitleLabel";
+            this.albumTitleLabel.Size = new System.Drawing.Size(61, 13);
+            this.albumTitleLabel.TabIndex = 7;
+            this.albumTitleLabel.Text = "Album title: ";
+            // 
+            // albumTitleDisplay
+            // 
+            this.albumTitleDisplay.AutoSize = true;
+            this.albumTitleDisplay.Location = new System.Drawing.Point(85, 56);
+            this.albumTitleDisplay.Name = "albumTitleDisplay";
+            this.albumTitleDisplay.Size = new System.Drawing.Size(0, 13);
+            this.albumTitleDisplay.TabIndex = 8;
+            // 
             // MusicPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,6 +172,9 @@
         private System.Windows.Forms.Label songTitleDisplay;
         private System.Windows.Forms.Button previousButton;
         private System.Windows.Forms.Button pauseButton;
+        private System.Windows.Forms.Label albumTitleLabel;
+        private System.Windows.Forms.Label songTitleLabel;
+        private System.Windows.Forms.Label albumTitleDisplay;
     }
 }
 

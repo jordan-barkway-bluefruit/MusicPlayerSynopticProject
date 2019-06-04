@@ -32,9 +32,9 @@ namespace MusicPlayer.MusicPlayerComponents
 
                 wplayer.currentPlaylist = playlist;
                 wplayer.controls.play();
-                
             }
         }
+
         public void SkipSong()
         {
             wplayer.controls.next();
@@ -49,6 +49,5 @@ namespace MusicPlayer.MusicPlayerComponents
         {
             wplayer.controls.pause();
         }
-
     }
 }
