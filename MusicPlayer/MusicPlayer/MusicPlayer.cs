@@ -28,7 +28,6 @@ namespace MusicPlayer
             _mDevice.aButtonIsPressed = true;
             _mPlayer.PlaySong(filesSelected);
 
-            songTitleDisplay.Text = filesSelected[songNumber].ToString().Substring(48);
         }
 
         private void SelectMusicFiles(object sender, EventArgs e)
@@ -49,6 +48,7 @@ namespace MusicPlayer
             }
 
             albumTitleDisplay.Text = folderBrowserDialog1.SelectedPath.ToString().Substring(48);
+            songTitleDisplay.Text = filesSelected[songNumber].ToString().Substring(48);
 
             SelectMediaFiles.Hide();
             panel1.Show();
