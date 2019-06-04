@@ -40,6 +40,7 @@
             this.songTitleLabel = new System.Windows.Forms.Label();
             this.albumTitleLabel = new System.Windows.Forms.Label();
             this.albumTitleDisplay = new System.Windows.Forms.Label();
+            this.shuffleButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +67,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.shuffleButton);
             this.panel1.Controls.Add(this.albumTitleDisplay);
             this.panel1.Controls.Add(this.albumTitleLabel);
             this.panel1.Controls.Add(this.songTitleLabel);
@@ -146,6 +148,17 @@
             this.albumTitleDisplay.Size = new System.Drawing.Size(0, 13);
             this.albumTitleDisplay.TabIndex = 8;
             // 
+            // shuffleButton
+            // 
+            this.shuffleButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("shuffleButton.BackgroundImage")));
+            this.shuffleButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.shuffleButton.Location = new System.Drawing.Point(319, 187);
+            this.shuffleButton.Name = "shuffleButton";
+            this.shuffleButton.Size = new System.Drawing.Size(43, 43);
+            this.shuffleButton.TabIndex = 9;
+            this.shuffleButton.UseVisualStyleBackColor = true;
+            this.shuffleButton.Click += new System.EventHandler(this.ShuffleButtonClicked);
+            // 
             // MusicPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,6 +188,7 @@
         private System.Windows.Forms.Label albumTitleLabel;
         private System.Windows.Forms.Label songTitleLabel;
         private System.Windows.Forms.Label albumTitleDisplay;
+        private System.Windows.Forms.Button shuffleButton;
     }
 }
 

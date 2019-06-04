@@ -59,14 +59,7 @@ namespace MusicPlayer
             _mDevice.aButtonIsPressed = true;
             _mPlayer.SkipSong();
 
-            if (songNumber-1 != filesSelected.Count)
-            {
-                songTitleDisplay.Text = filesSelected[++songNumber].ToString().Substring(48);
-            }
-            else
-            {
-                PlayButtonClicked(sender, e);
-            }
+            songTitleDisplay.Text = filesSelected[++songNumber].ToString().Substring(48);
         }
 
         private void PreviousButtonClicked(object sender, EventArgs e)
@@ -81,6 +74,11 @@ namespace MusicPlayer
         {
             _mDevice.aButtonIsPressed = true;
             _mPlayer.PauseSong();
+        }
+
+        private void ShuffleButtonClicked(object sender, EventArgs e)
+        {
+            _mPlayer.shuffleActive = true;
         }
     }
 }

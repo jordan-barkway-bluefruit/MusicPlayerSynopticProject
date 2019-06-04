@@ -11,6 +11,7 @@ namespace MusicPlayer.MusicPlayerComponents
         public DeviceMock _mDevice = new DeviceMock();
 
         public bool isPlayback = false;
+        public bool shuffleActive = false;
 
         static readonly WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
@@ -31,6 +32,8 @@ namespace MusicPlayer.MusicPlayerComponents
                 }
 
                 wplayer.currentPlaylist = playlist;
+                wplayer.settings.setMode("loop", true);
+                wplayer.settings.setMode("shuffle", shuffleActive);
                 wplayer.controls.play();
             }
         }
