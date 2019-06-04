@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MusicPlayer));
             this.PlayButton = new System.Windows.Forms.Button();
             this.SelectMediaFiles = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // PlayButton
@@ -55,11 +55,6 @@
             this.SelectMediaFiles.UseVisualStyleBackColor = true;
             this.SelectMediaFiles.Click += new System.EventHandler(this.SelectMusicFiles);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Multiselect = true;
-            // 
             // MusicPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -78,7 +73,7 @@
 
         private System.Windows.Forms.Button PlayButton;
         private System.Windows.Forms.Button SelectMediaFiles;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
 

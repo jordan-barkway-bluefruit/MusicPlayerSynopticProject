@@ -23,11 +23,15 @@ namespace MusicPlayer.MusicPlayerComponents
             {
                 WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
+                var playlist = wplayer.newPlaylist("My playlist", "");
+
                 for (int i = 0; i < filesSelected.Count; i++)
                 {
-                    wplayer.URL = filesSelected[i].Replace(@"\\", @"\");
-                    wplayer.controls.play();
+                    playlist.appendItem(wplayer.newMedia(filesSelected[i].Replace(@"\\", @"\")));
                 }
+
+                wplayer.currentPlaylist = playlist;
+                wplayer.controls.play();
                 
             }
         }

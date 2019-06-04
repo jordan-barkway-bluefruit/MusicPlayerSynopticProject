@@ -1,7 +1,7 @@
 ﻿using MusicPlayer.MusicPlayerComponents;
 using System;
 using System.Collections.Generic;
-using System.Media;
+using System.IO;
 using System.Windows.Forms;
 
 namespace MusicPlayer
@@ -27,25 +27,18 @@ namespace MusicPlayer
 
         private void SelectMusicFiles(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog
             {
-                InitialDirectory = @"C:\Code\MusicPlayerSynopticProject\MusicLibrary",
-                Title = "Browse Audio Files",
-
-                CheckFileExists = true,
-                CheckPathExists = true,
-                RestoreDirectory = true,
-
-                Multiselect = true,
-                ReadOnlyChecked = true,
-                ShowReadOnly = true
+                RootFolder = Environment.SpecialFolder.MyComputer
             };
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                for (int i = 0; i < openFileDialog1.FileNames.Length; i++ )
+                string[] files = Directory.GetFiles(folderBrowserDialog1.SelectedPath);
+
+                for (int i = 0; i < files.Length; i++ )
                 {
-                    filesSelected.Add(openFileDialog1.FileNames[i].ToString());
+                    filesSelected.Add(files[i].ToString());
                 }
             }
         }
