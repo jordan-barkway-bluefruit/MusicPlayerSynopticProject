@@ -19,14 +19,7 @@ namespace MusicPlayer
         private Player _mPlayer = new Player();
 
         public List<string> filesSelected = new List<string>();
-               
-
-        private void PlayButtonClicked(object sender, EventArgs e)
-        {
-            _mDevice.aButtonIsPressed = true;
-            _mPlayer.PlaySong();
-        }
-
+        
         private void SelectMusicFiles(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog
@@ -59,21 +52,23 @@ namespace MusicPlayer
             }
         }
 
+        private void PlayButtonClicked(object sender, EventArgs e)
+        {
+            _mPlayer.PlaySong();
+        }
+
         private void SkipButtonClicked(object sender, EventArgs e)
         {
-            _mDevice.aButtonIsPressed = true;
             _mPlayer.SkipSong();
         }
 
         private void PreviousButtonClicked(object sender, EventArgs e)
         {
-            _mDevice.aButtonIsPressed = true;
             _mPlayer.PreviousSong();
         }
 
         private void PauseButtonClicked(object sender, EventArgs e)
         {
-            _mDevice.aButtonIsPressed = true;
             _mPlayer.PauseSong();
         }
 

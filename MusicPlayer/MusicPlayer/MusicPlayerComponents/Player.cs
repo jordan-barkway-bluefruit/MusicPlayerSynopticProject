@@ -8,8 +8,6 @@ namespace MusicPlayer.MusicPlayerComponents
         public Player()
         { }
 
-        public DeviceMock _mDevice = new DeviceMock();
-
         public bool shuffleActive = false;
 
         static readonly WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
