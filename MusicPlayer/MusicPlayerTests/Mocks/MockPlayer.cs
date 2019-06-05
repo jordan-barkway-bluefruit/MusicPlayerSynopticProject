@@ -10,14 +10,21 @@ namespace MusicPlayerTests.Mocks
 
         public bool isPlayback = false;
         
-        public void PlaySong(List<string> filesSelected)
+        public void PlaySong()
         {
-            filesSelected = null;
-
             if (_mDevice.InteractivityTimer())
             {
                 isPlayback = true;
             }
         }
+
+        public void PlayListCreation(List<string> filesSelected)
+        { }
+        public void SkipSong()
+        { }
+        public void PreviousSong()
+        { }
+        public void PauseSong()
+        { }
     }
 }

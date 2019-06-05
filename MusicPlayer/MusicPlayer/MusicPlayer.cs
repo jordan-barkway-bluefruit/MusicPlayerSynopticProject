@@ -14,9 +14,7 @@ namespace MusicPlayer
 
             panel1.Hide();
         }
-
-        int songNumber = 0;
-
+        
         private DeviceMock _mDevice = new DeviceMock();
         private Player _mPlayer = new Player();
 
@@ -26,8 +24,7 @@ namespace MusicPlayer
         private void PlayButtonClicked(object sender, EventArgs e)
         {
             _mDevice.aButtonIsPressed = true;
-            _mPlayer.PlaySong(filesSelected);
-
+            _mPlayer.PlaySong();
         }
 
         private void SelectMusicFiles(object sender, EventArgs e)
@@ -41,33 +38,37 @@ namespace MusicPlayer
             {
                 string[] files = Directory.GetFiles(folderBrowserDialog1.SelectedPath);
 
-                for (int i = 0; i < files.Length; i++ )
+                for(int file = 1; file < files.Length; file++)
                 {
-                    filesSelected.Add(files[i].ToString());
+                    if (files[file - 1].ToString().EndsWith(".mp3"))
+                    {
+                            filesSelected.Add(files[file].ToString());
+                            albumTitleDisplay.Text = folderBrowserDialog1.SelectedPath.ToString().Substring(48);
+                            _mPlayer.PlayListCreation(filesSelected);
+
+                            SelectMediaFiles.Hide();
+                            panel1.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a different folder that contains MP3 files.");
+                        SelectMusicFiles(sender, e);
+                    }
                 }
+                 
             }
-
-            albumTitleDisplay.Text = folderBrowserDialog1.SelectedPath.ToString().Substring(48);
-            songTitleDisplay.Text = filesSelected[songNumber].ToString().Substring(48);
-
-            SelectMediaFiles.Hide();
-            panel1.Show();
         }
 
         private void SkipButtonClicked(object sender, EventArgs e)
         {
             _mDevice.aButtonIsPressed = true;
             _mPlayer.SkipSong();
-
-            songTitleDisplay.Text = filesSelected[++songNumber].ToString().Substring(48);
         }
 
         private void PreviousButtonClicked(object sender, EventArgs e)
         {
             _mDevice.aButtonIsPressed = true;
             _mPlayer.PreviousSong();
-
-            songTitleDisplay.Text = filesSelected[--songNumber].ToString().Substring(48);
         }
 
         private void PauseButtonClicked(object sender, EventArgs e)

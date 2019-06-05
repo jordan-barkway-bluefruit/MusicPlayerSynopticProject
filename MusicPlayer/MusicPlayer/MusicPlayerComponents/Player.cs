@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Media;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MusicPlayer.MusicPlayerComponents
 {
@@ -10,46 +10,43 @@ namespace MusicPlayer.MusicPlayerComponents
 
         public DeviceMock _mDevice = new DeviceMock();
 
-        public bool isPlayback = false;
         public bool shuffleActive = false;
 
         static readonly WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
         private WMPLib.IWMPPlaylist playlist = wplayer.newPlaylist("My playlist", "");
 
-        public void PlaySong(List<string> filesSelected)
+        public void PlayListCreation(List<string> filesSelected)
         {
-            if (_mDevice.InteractivityTimer())
+            for (int i = 0; i < filesSelected.Count; i++)
             {
-                isPlayback = true;
+                playlist.appendItem(wplayer.newMedia(filesSelected[i].Replace(@"\\", @"\")));
             }
 
-            if (isPlayback)
-            {
-                for (int i = 0; i < filesSelected.Count; i++)
-                {
-                    playlist.appendItem(wplayer.newMedia(filesSelected[i].Replace(@"\\", @"\")));
-                }
+            wplayer.currentPlaylist = playlist;
+        }
 
-                wplayer.currentPlaylist = playlist;
-                wplayer.settings.setMode("loop", true);
-                wplayer.settings.setMode("shuffle", shuffleActive);
-                wplayer.controls.play();
-            }
+        public void PlaySong()
+        {
+            wplayer.settings.setMode("shuffle", shuffleActive);
+            wplayer.controls.play();
         }
 
         public void SkipSong()
         {
+            wplayer.settings.setMode("shuffle", shuffleActive);
             wplayer.controls.next();
         }
 
         public void PreviousSong()
         {
+            wplayer.settings.setMode("shuffle", shuffleActive);
             wplayer.controls.previous();
         }
 
         public void PauseSong()
         {
+            wplayer.settings.setMode("shuffle", shuffleActive);
             wplayer.controls.pause();
         }
     }
