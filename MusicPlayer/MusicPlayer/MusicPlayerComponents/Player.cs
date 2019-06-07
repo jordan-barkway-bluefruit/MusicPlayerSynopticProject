@@ -1,4 +1,5 @@
-﻿using System.Media;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MusicPlayer.MusicPlayerComponents
 {
@@ -7,22 +8,44 @@ namespace MusicPlayer.MusicPlayerComponents
         public Player()
         { }
 
-        public DeviceMock _mDevice = new DeviceMock();
+        public bool shuffleActive = false;
 
-        public bool isPlayback = false;
+        static readonly WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+
+        private WMPLib.IWMPPlaylist playlist = wplayer.newPlaylist("My playlist", "");
+
+        public void PlayListCreation(List<string> filesSelected)
+        {
+            for (int i = 0; i < filesSelected.Count; i++)
+            {
+                playlist.appendItem(wplayer.newMedia(filesSelected[i].Replace(@"\\", @"\")));
+            }
+
+            wplayer.currentPlaylist = playlist;
+        }
 
         public void PlaySong()
         {
-            if (_mDevice.InteractivityTimer())
-            {
-                isPlayback = true;
-            }
+            wplayer.settings.setMode("shuffle", shuffleActive);
+            wplayer.controls.play();
+        }
 
-            if (isPlayback)
-            {
-                SoundPlayer songSelected = new SoundPlayer(@"C:\Code\MusicPlayerSynopticProject\MusicLibrary\Friday - Rebecca Black.wav");
-                songSelected.Play();
-            }
+        public void SkipSong()
+        {
+            wplayer.settings.setMode("shuffle", shuffleActive);
+            wplayer.controls.next();
+        }
+
+        public void PreviousSong()
+        {
+            wplayer.settings.setMode("shuffle", shuffleActive);
+            wplayer.controls.previous();
+        }
+
+        public void PauseSong()
+        {
+            wplayer.settings.setMode("shuffle", shuffleActive);
+            wplayer.controls.pause();
         }
     }
 }

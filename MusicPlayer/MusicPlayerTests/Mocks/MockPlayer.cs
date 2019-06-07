@@ -1,5 +1,6 @@
 ﻿using MusicPlayer;
 using MusicPlayer.MusicPlayerComponents;
+using System.Collections.Generic;
 
 namespace MusicPlayerTests.Mocks
 {
@@ -16,5 +17,14 @@ namespace MusicPlayerTests.Mocks
                 isPlayback = true;
             }
         }
+
+        public void PlayListCreation(List<string> filesSelected)
+        { }
+        public void SkipSong()
+        { }
+        public void PreviousSong()
+        { }
+        public void PauseSong()
+        { }
     }
 }
