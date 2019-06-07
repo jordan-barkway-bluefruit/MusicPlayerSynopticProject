@@ -46,12 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Device\DeviceMock.cs" />
     <Compile Include="MusicPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MusicPlayer.Designer.cs">
       <DependentUpon>MusicPlayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="MusicPlayerComponents\IPlayer.cs" />
+    <Compile Include="MusicPlayerComponents\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MusicPlayer.resx">

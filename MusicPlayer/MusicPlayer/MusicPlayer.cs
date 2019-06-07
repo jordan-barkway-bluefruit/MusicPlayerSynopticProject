@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicPlayer.MusicPlayerComponents;
+using System;
 using System.Media;
 using System.Windows.Forms;
 
@@ -11,10 +12,13 @@ namespace MusicPlayer
             InitializeComponent();
         }
 
+        private DeviceMock _mDevice = new DeviceMock();
+        private Player _mPlayer = new Player();
+
         private void PlayButtonClicked(object sender, EventArgs e)
         {
-            SoundPlayer songSelected = new SoundPlayer(@"c:\Windows\Media\chord.wav");
-            songSelected.Play();
+            _mDevice.aButtonIsPressed = true;
+            _mPlayer.PlaySong();
         }
     }
 }
